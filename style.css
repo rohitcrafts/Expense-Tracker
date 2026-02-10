@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* background */
+body {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.calc-toggle {
+  background: white;
+  color: black;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+/* ===== MAIN CARD ===== */
+.container {
+  background: white;
+  width: 95%;
+  max-width: 500px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* balance */
+.balance-box {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.summary {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.income-card {
+  background: #d4edda;
+  color: green;
+}
+
+.expense-card {
+  background: #f8d7da;
+  color: red;
+}
+.revenue-card {
+  background: #d4edda;
+  color: green;
+}
+
+.profit-card {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  flex: 1;
+}
+
+/* buttons */
+button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-btn {
+  background: #4e73df;
+  color: white;
+}
+
+.danger {
+  width: 100%;
+  margin-top: 10px;
+  background: black;
+  color: white;
+}
+
+/* list */
+ul {
+  list-style: none;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+li {
+  padding: 8px;
+  margin: 6px 0;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+
+.plus { background: #d4edda; }
+.minus { background: #f8d7da; }
+
+/* chart */
+canvas {
+  margin-top: 20px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 12px;
+  color: white;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:480px) {
+
+  form {
+    flex-direction: column;
+  }
+
+  .summary {
+    flex-direction: column;
+  }
+}
+
+/* ========================= */
+/* 🔥 ANIMATIONS */
+/* ========================= */
+
+/* page load fade */
+.container {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* card hover */
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* button hover */
+button {
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* list animation */
+li {
+  animation: slideIn 0.3s ease;
+  transition: 0.3s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* delete hover */
+li:hover {
+  transform: scale(1.02);
+}
+
+/* chart smooth */
+canvas {
+  animation: fadeIn 0.8s ease;
+}
+
+/* ================================= */
+/* 🔥 RESPONSIVE MODERN CALCULATOR */
+/* ================================= */
+
+.calculator {
+  position: fixed;
+  top: 0;
+  right: -360px;
+  width: 340px;
+  height: 100vh;
+
+  background: rgba(20,20,20,0.95);
+  backdrop-filter: blur(20px);
+
+  padding: 20px;
+  border-radius: 20px 0 0 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.45s ease;
+  box-shadow: -8px 0 30px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.calculator.active {
+  right: 0;
+}
+
+/* header */
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.calc-header h3 {
+  font-size: 18px;
+}
+
+/* display */
+#calcDisplay {
+  width: 100%;
+  padding: 16px;
+  font-size: 26px;
+  text-align: right;
+
+  background: black;
+  color: #00ff88;
+
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+/* grid */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  flex: 1;
+}
+
+/* buttons */
+.calc-grid button {
+  padding: 16px;
+  font-size: 17px;
+  border-radius: 10px;
+  background: #2b2b2b;
+  color: white;
+  transition: 0.2s;
+}
+
+.calc-grid button:hover {
+  transform: scale(1.08);
+  background: #4e73df;
+}
+
+.op {
+  background: #ff9800;
+}
+
+.clear {
+  grid-column: span 4;
+  background: red;
+}
+
+/* ========================= */
+/* 📱 TABLET RESPONSIVE */
+/* ========================= */
+@media (max-width: 900px) {
+  .calculator {
+    width: 280px;
+  }
+
+  .calc-grid button {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE FULLSCREEN */
+/* ========================= */
+@media (max-width: 480px) {
+
+  .calculator {
+    width: 100%;
+    right: -100%;
+    border-radius: 0;
+  }
+
+  .calculator.active {
+    right: 0;
+  }
+
+  #calcDisplay {
+    font-size: 24px;
+  }
+
+  .calc-grid button {
+    padding: 18px;
+    font-size: 18px;
+  }
+}

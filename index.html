@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- 🔵 HEADER -->
+  <header class="header">
+    <h2>💰 Expense Tracker Dashboard</h2>
+    <button id="calcBtn" class="calc-toggle">🧮 Calculator</button>
+  </header>
+
+
+  <!-- MAIN CARD -->
+  <div class="container">
+
+    <!-- Balance -->
+    <div class="balance-box">
+      <h3>Total Balance</h3>
+      <h1>₹ <span id="balance">0</span></h1>
+
+      <div class="summary">
+
+        <div class="card revenue-card">
+          Revenue <br> ₹ <span id="revenue">0</span>
+        </div>
+
+        <div class="card expense-card">
+          Expense <br> ₹ <span id="expense">0</span>
+        </div>
+
+        <div class="card profit-card">
+          Profit/Loss <br> ₹ <span id="profit">0</span>
+        </div>
+
+      </div>
+
+
+    <!-- Form -->
+    <form id="form">
+      <input type="text" id="text" placeholder="Description" required />
+      <input type="number" id="amount" placeholder="+ income / - expense" required />
+      <button class="add-btn">Add</button>
+    </form>
+
+    <input type="text" id="search" placeholder="Search transaction..." />
+
+    <ul id="list"></ul>
+
+    <button id="clear" class="danger">Clear All</button>
+
+    <canvas id="chart"></canvas>
+
+  </div>
+
+  <footer class="footer">
+    © 2026 Shravan • Built with HTML CSS JS
+  </footer>
+
+  <!-- 🔥 Modern Calculator Panel -->
+<div class="calculator" id="calculator">
+
+  <div class="calc-header">
+    <h3>Calculator</h3>
+    <button id="closeCalc">✖</button>
+  </div>
+
+  <input type="text" id="calcDisplay" readonly>
+
+  <div class="calc-grid">
+    <button>7</button><button>8</button><button>9</button><button class="op">/</button>
+    <button>4</button><button>5</button><button>6</button><button class="op">*</button>
+    <button>1</button><button>2</button><button>3</button><button class="op">-</button>
+    <button>0</button><button>.</button><button>=</button><button class="op">+</button>
+    <button class="clear">Clear</button>
+  </div>
+
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
